@@ -1,6 +1,6 @@
 # UploadToGoogleDrive
 
-Tool to upload directories and files to Google Drive of the specified user.
+Tool to upload directories and files to the Google Drive of the specified user without requiring authorization during the run or a StoredCredentials file on the local machine.
 
 ## Setup
 
@@ -13,7 +13,7 @@ Tool to upload directories and files to Google Drive of the specified user.
 
 ### Retrieve Refresh Token
 - Go to the OAuth Playground (https://developers.google.com/oauthplayground).
-- In the settings, set "OAuth flow" to "Server-side", "Access type" to "Offline", and "Use your own OAuth credentials" to selected.
+- In the settings, set "OAuth flow" to "Server-side", "Access type" to "Offline", and "Use your own OAuth credentials" to selected and populated with the OAuth client ID details created in the Google Account Configuration section.
 - Under Step 1, select Drive API v3 -> https://www.googleapis.com/auth/drive.file.
 - Click "Authorize APIs" and allow access to your Google account when prompted.
 - Under Step 2, click "Exchange authorization code for tokens" and retrieve the Refresh Token.
@@ -25,7 +25,7 @@ Tool to upload directories and files to Google Drive of the specified user.
 - Build jar file.
 
 Google Account Configuration steps only need to be performed once.  Retrieve Refresh Token and File Changes steps must be performed whenever the refresh token expires.
-OAuth Playground currently advises that it revokes refresh tokens after 24 hours.
+OAuth Playground currently advises that it revokes refresh tokens after 24 hours - however, testing shows the token is still valid a week after generation.
 
 ## Use
 
